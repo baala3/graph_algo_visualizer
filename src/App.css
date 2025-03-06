@@ -28,3 +28,8 @@
 .dropdown-40::after {
   border-color: white !important;
 }
+
+/* Hide header in the panel on mobile devices */
+.ms-Panel-commands {
+  background-color: transparent !important;
+}
