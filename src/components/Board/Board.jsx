@@ -191,8 +191,8 @@ const Board = () => {
               label="Visual Delay"
               styles={sliderOptions}
               min={100}
-              max={1000}
-              step={100}
+              max={2000}
+              step={200}
               value={visualizationSpeed}
               onChange={setVisualizationSpeed}
               disabled={isVisualizing}
