@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./Node.module.css";
-import { calculateCurve, calculateTextLoc } from "../../../utility/calc";
+import React from 'react';
+import styles from './Node.module.css';
+import { calculateCurve, calculateTextLoc } from '../../../utility/calc';
 export const Node = (props) => {
   const {
     node,
@@ -51,7 +51,7 @@ export const Node = (props) => {
           );
           return (
             <>
-              {edge.type === "directed" && (
+              {edge.type === 'directed' && (
                 <>
                   <marker
                     className={`${styles.arrow} ${
@@ -96,7 +96,7 @@ export const Node = (props) => {
                 </>
               )}
 
-              {edge.type === "undirected" && (
+              {edge.type === 'undirected' && (
                 <>
                   <path
                     d={undirectedPath}

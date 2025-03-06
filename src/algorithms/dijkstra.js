@@ -7,9 +7,9 @@ export const dijkstra = (edges, startNodeId, endNodeId) => {
     y2: NaN,
     nodeX2: NaN,
     nodeY2: NaN,
-    from: "Infinity",
+    from: 'Infinity',
     to: startNodeId.toString(),
-    type: "directed",
+    type: 'directed',
     weight: NaN,
     isUsedInTraversal: false,
   };
@@ -63,9 +63,9 @@ const backtrack = (prev, startNodeId, endNodeId) => {
     y2: NaN,
     nodeX2: NaN,
     nodeY2: NaN,
-    from: "Infinity",
+    from: 'Infinity',
     to: startNodeId.toString(),
-    type: "directed",
+    type: 'directed',
     weight: NaN,
     isUsedInTraversal: false,
   };

@@ -1,4 +1,4 @@
-import { Stack } from "../data-structures/Stack";
+import { Stack } from '../data-structures/Stack';
 
 // Performs depth-first search traversal starting from given node
 export const dfs = (edges, startNodeId) => {
@@ -10,9 +10,9 @@ export const dfs = (edges, startNodeId) => {
     y2: NaN,
     nodeX2: NaN,
     nodeY2: NaN,
-    from: "Infinity",
+    from: 'Infinity',
     to: startNodeId.toString(),
-    type: "directed",
+    type: 'directed',
     weight: NaN,
     isUsedInTraversal: false,
   };

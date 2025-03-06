@@ -1,17 +1,17 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
-import { Node } from "../Graph/Node/Node";
-import styles from "./Graph.module.css";
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { Node } from '../Graph/Node/Node';
+import styles from './Graph.module.css';
 import {
   calculateAccurateCoords,
   findToNodeForTouchBasedDevices,
-} from "../../utility/calc";
-import { Modal, TextField, MessageBar, MessageBarType } from "@fluentui/react";
-import { bfs } from "../../algorithms/bfs";
-import { dfs } from "../../algorithms/dfs";
-import { minspantreeprims } from "../../algorithms/min_span_tree";
-import { dijkstra } from "../../algorithms/dijkstra";
-import { cloneDeep } from "lodash";
-import { algoMessages } from "../../configs/readOnly";
+} from '../../utility/calc';
+import { Modal, TextField, MessageBar, MessageBarType } from '@fluentui/react';
+import { bfs } from '../../algorithms/bfs';
+import { dfs } from '../../algorithms/dfs';
+import { minspantreeprims } from '../../algorithms/min_span_tree';
+import { dijkstra } from '../../algorithms/dijkstra';
+import { cloneDeep } from 'lodash';
+import { algoMessages } from '../../configs/readOnly';
 
 var __rest =
   (this && this.__rest) ||
@@ -20,7 +20,7 @@ var __rest =
     for (var p in s)
       if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+    if (s != null && typeof Object.getOwnPropertySymbols === 'function')
       for (
         var i = 0, sym = Object.getOwnPropertySymbols(s);
         i < sym.length;
@@ -84,7 +84,7 @@ export const Graph = (props) => {
     isVisualizationDone.current = false;
   }, [nodes, edges]);
   useEffect(() => {
-    graph.current.addEventListener("touchmove", (e) => e.preventDefault());
+    graph.current.addEventListener('touchmove', (e) => e.preventDefault());
   }, []);
   useEffect(() => {
     //deletes the graph from the board.
@@ -144,13 +144,13 @@ export const Graph = (props) => {
         : list.forEach((edge) => {
             var _a;
             if (
-              edge.type === "directed" &&
+              edge.type === 'directed' &&
               edge.from === currentEdge.from &&
               edge.to === currentEdge.to
             ) {
               edge[edgeAttribute] = true;
             }
-            if (edge.type === "undirected") {
+            if (edge.type === 'undirected') {
               if (
                 edge.from === currentEdge.from &&
                 edge.to === currentEdge.to
@@ -204,8 +204,8 @@ export const Graph = (props) => {
         if (!isNodeIsInShortedPath) {
           visualizeSetState(
             currentEdge,
-            "isUsedInShortestPath",
-            "isInShortestPath"
+            'isUsedInShortestPath',
+            'isInShortestPath'
           );
         }
       }, visualizationSpeed * i);
@@ -237,7 +237,7 @@ export const Graph = (props) => {
           return false;
         });
         if (!isNodeTraversed) {
-          visualizeSetState(currentEdge, "isUsedInTraversal", "isVisited");
+          visualizeSetState(currentEdge, 'isUsedInTraversal', 'isVisited');
         }
       }, visualizationSpeed * i);
     }
@@ -245,7 +245,7 @@ export const Graph = (props) => {
   //common handler for adding new nodes,deleting existing nodes and selecting nodes for visualization
   const handleSelect = (event) => {
     const target = event.target;
-    const isNode = target.tagName === "circle";
+    const isNode = target.tagName === 'circle';
     if (options.drawNode && !isNode) {
       addNode(event);
     } else if (options.deleteNode && isNode) {
@@ -253,7 +253,7 @@ export const Graph = (props) => {
     } else if (
       (selectedAlgo === null || selectedAlgo === void 0
         ? void 0
-        : selectedAlgo.data) === "traversal" &&
+        : selectedAlgo.data) === 'traversal' &&
       isNode &&
       !isVisualizing
     ) {
@@ -261,18 +261,18 @@ export const Graph = (props) => {
       if (
         (selectedAlgo === null || selectedAlgo === void 0
           ? void 0
-          : selectedAlgo.key) === "bfs"
+          : selectedAlgo.key) === 'bfs'
       ) {
         let visitedEdges = bfs(edges, startNodeId);
         visualizeGraph(visitedEdges);
       } else if (
         (selectedAlgo === null || selectedAlgo === void 0
           ? void 0
-          : selectedAlgo.key) === "dfs"
+          : selectedAlgo.key) === 'dfs'
       ) {
         let visitedEdges = dfs(edges, startNodeId);
         visualizeGraph(visitedEdges);
-      } else if (selectedAlgo.key === "minspantreeprims") {
+      } else if (selectedAlgo.key === 'minspantreeprims') {
         let visitedEdges = minspantreeprims(edges, nodes, startNodeId);
         if (visitedEdges.length !== 0) visualizeGraph(visitedEdges);
         else {
@@ -293,7 +293,7 @@ export const Graph = (props) => {
     } else if (
       (selectedAlgo === null || selectedAlgo === void 0
         ? void 0
-        : selectedAlgo.data) === "pathfinding" &&
+        : selectedAlgo.data) === 'pathfinding' &&
       isNode &&
       !isVisualizing
     ) {
@@ -425,7 +425,7 @@ export const Graph = (props) => {
         if (
           (selectedEdge === null || selectedEdge === void 0
             ? void 0
-            : selectedEdge.key) === "directed"
+            : selectedEdge.key) === 'directed'
         ) {
           let { tempX: tempX2, tempY: tempY2 } = calculateAccurateCoords(
             x1,
@@ -439,7 +439,7 @@ export const Graph = (props) => {
           toNode.y2 = tempY2;
           toNode.nodeX2 = nodeX2;
           toNode.nodeY2 = nodeY2;
-          toNode.type = "directed";
+          toNode.type = 'directed';
           (_c =
             edges === null || edges === void 0
               ? void 0
@@ -449,7 +449,7 @@ export const Graph = (props) => {
         } else if (
           (selectedEdge === null || selectedEdge === void 0
             ? void 0
-            : selectedEdge.key) === "undirected"
+            : selectedEdge.key) === 'undirected'
         ) {
           const fromNodeId = parseInt(currentEdge.current.from);
           const toNodeId = parseInt(currentEdge.current.to);
@@ -478,7 +478,7 @@ export const Graph = (props) => {
             toNode.y2 = tempY2;
             toNode.nodeX2 = nodeX2;
             toNode.nodeY2 = nodeY2;
-            toNode.type = "undirected";
+            toNode.type = 'undirected';
             (_f =
               edges === null || edges === void 0
                 ? void 0
@@ -500,7 +500,7 @@ export const Graph = (props) => {
               nodeY2: y1,
               from: currentEdge.current.to,
               to: currentEdge.current.from,
-              type: "undirected",
+              type: 'undirected',
               weight: currentEdge.current.weight,
             };
             (_g =
@@ -526,7 +526,7 @@ export const Graph = (props) => {
   //delete edge functionality
   const deleteEdge = (currentEdge, fromNode) => {
     var _a, _b, _c;
-    if (currentEdge.type === "directed") {
+    if (currentEdge.type === 'directed') {
       let upgradedEdges =
         (_a =
           edges === null || edges === void 0 ? void 0 : edges.get(fromNode)) ===
@@ -536,7 +536,7 @@ export const Graph = (props) => {
       let newEdges = new Map(edges);
       newEdges.set(fromNode, upgradedEdges);
       setEdges(newEdges);
-    } else if (currentEdge.type === "undirected") {
+    } else if (currentEdge.type === 'undirected') {
       let upgradedOutgoingEdges =
         (_b =
           edges === null || edges === void 0 ? void 0 : edges.get(fromNode)) ===
@@ -567,7 +567,7 @@ export const Graph = (props) => {
     var _a, _b, _c;
     let currentEdge = Object.assign({}, edge);
     if (
-      (edge === null || edge === void 0 ? void 0 : edge.type) === "directed"
+      (edge === null || edge === void 0 ? void 0 : edge.type) === 'directed'
     ) {
       let upgradedEdges =
         (_a =
@@ -587,7 +587,7 @@ export const Graph = (props) => {
       newEdges.set(currentNode.current.id, upgradedEdges);
       setEdges(newEdges);
     } else if (
-      (edge === null || edge === void 0 ? void 0 : edge.type) === "undirected"
+      (edge === null || edge === void 0 ? void 0 : edge.type) === 'undirected'
     ) {
       let upgradedOutgoingEdges =
         (_b =
@@ -631,27 +631,27 @@ export const Graph = (props) => {
       (selectedEdge === null || selectedEdge === void 0
         ? void 0
         : selectedEdge.key) &&
-      (selectedEdge.key === "directed" || selectedEdge.key === "undirected");
+      (selectedEdge.key === 'directed' || selectedEdge.key === 'undirected');
     if (canMoveNode) {
       currentNode.current = event.target;
       //logic for movement of nodes.
       const handleNodeMove = (event) => {
         let nodeX = event.clientX - graph.current.getBoundingClientRect().left;
         let nodeY = event.clientY - graph.current.getBoundingClientRect().top;
-        currentNode.current.setAttribute("cx", nodeX);
-        currentNode.current.setAttribute("cy", nodeY);
-        currentNode.current.nextElementSibling.setAttribute("x", nodeX);
-        currentNode.current.nextElementSibling.setAttribute("y", nodeY + 5);
+        currentNode.current.setAttribute('cx', nodeX);
+        currentNode.current.setAttribute('cy', nodeY);
+        currentNode.current.nextElementSibling.setAttribute('x', nodeX);
+        currentNode.current.nextElementSibling.setAttribute('y', nodeY + 5);
         updateNodeCoord(nodeX, nodeY);
         updateEdgeCoord(nodeX, nodeY);
       };
       //function triggered to remove mouse event listeners.
       const handleNodeEnd = () => {
-        graph.current.removeEventListener("pointermove", handleNodeMove);
-        graph.current.removeEventListener("pointerup", handleNodeEnd);
+        graph.current.removeEventListener('pointermove', handleNodeMove);
+        graph.current.removeEventListener('pointerup', handleNodeEnd);
       };
-      graph.current.addEventListener("pointermove", handleNodeMove);
-      graph.current.addEventListener("pointerup", handleNodeEnd);
+      graph.current.addEventListener('pointermove', handleNodeMove);
+      graph.current.addEventListener('pointerup', handleNodeEnd);
     } else if (canDrawEdge) {
       currentNode.current = event.target;
       //logic for drawing of edges.
@@ -659,19 +659,19 @@ export const Graph = (props) => {
         let arrowX = event.clientX - graph.current.getBoundingClientRect().left;
         let arrowY = event.clientY - graph.current.getBoundingClientRect().top;
         currentEdge.current = {
-          x1: parseInt(currentNode.current.getAttribute("cx")),
-          y1: parseInt(currentNode.current.getAttribute("cy")),
+          x1: parseInt(currentNode.current.getAttribute('cx')),
+          y1: parseInt(currentNode.current.getAttribute('cy')),
           x2: arrowX,
           y2: arrowY,
           from: currentNode.current.id,
-          to: "",
+          to: '',
           weight: 0,
         };
         setMockEdge(currentEdge.current);
       };
       //function triggered to remove mouse event listeners.
       const handleArrowEnd = (event) => {
-        const isTouchEvent = event.pointerType === "touch";
+        const isTouchEvent = event.pointerType === 'touch';
         if (isTouchEvent) {
           const node = findToNodeForTouchBasedDevices(
             event.clientX - graph.current.getBoundingClientRect().left,
@@ -679,37 +679,37 @@ export const Graph = (props) => {
             nodes
           );
           if (node) {
-            addEdge(node.id.toString(), "circle", node.x, node.y);
+            addEdge(node.id.toString(), 'circle', node.x, node.y);
           }
         } else {
           const target = event.target;
-          const isNode = target.tagName === "circle";
+          const isNode = target.tagName === 'circle';
           if (isNode) {
-            const x = parseInt(target.getAttribute("cx"));
-            const y = parseInt(target.getAttribute("cy"));
-            addEdge(target.id, "circle", x, y);
+            const x = parseInt(target.getAttribute('cx'));
+            const y = parseInt(target.getAttribute('cy'));
+            addEdge(target.id, 'circle', x, y);
           }
         }
         setMockEdge(null);
         currentEdge.current = undefined;
-        graph.current.removeEventListener("pointermove", handleArrowMove);
-        graph.current.removeEventListener("pointerup", handleArrowEnd);
+        graph.current.removeEventListener('pointermove', handleArrowMove);
+        graph.current.removeEventListener('pointerup', handleArrowEnd);
       };
-      graph.current.addEventListener("pointermove", handleArrowMove);
-      graph.current.addEventListener("pointerup", handleArrowEnd);
+      graph.current.addEventListener('pointermove', handleArrowMove);
+      graph.current.addEventListener('pointerup', handleArrowEnd);
     }
   };
   return (
     <>
-      {selectedAlgo?.data === "traversal" &&
+      {selectedAlgo?.data === 'traversal' &&
         (isTraversalPossible ? (
           <MessageBar
             className={styles.traversal}
             isMultiline={false}
             dismissButtonAriaLabel="Close"
-            styles={{ text: { fontWeight: "bold", fontSize: "14px" } }}
+            styles={{ text: { fontWeight: 'bold', fontSize: '14px' } }}
           >
-            {algoMessages[selectedAlgo?.data][selectedAlgo.key]["info"]}
+            {algoMessages[selectedAlgo?.data][selectedAlgo.key]['info']}
           </MessageBar>
         ) : (
           <MessageBar
@@ -717,20 +717,20 @@ export const Graph = (props) => {
             messageBarType={MessageBarType.error}
             isMultiline={false}
             dismissButtonAriaLabel="Close"
-            styles={{ text: { fontWeight: "bold", fontSize: "14px" } }}
+            styles={{ text: { fontWeight: 'bold', fontSize: '14px' } }}
           >
-            {algoMessages[selectedAlgo?.data][selectedAlgo.key]["failure"]}
+            {algoMessages[selectedAlgo?.data][selectedAlgo.key]['failure']}
           </MessageBar>
         ))}
-      {selectedAlgo?.data === "pathfinding" &&
+      {selectedAlgo?.data === 'pathfinding' &&
         (isPathPossible ? (
           <MessageBar
             className={styles.pathfinding}
             isMultiline={false}
             dismissButtonAriaLabel="Close"
-            styles={{ text: { fontWeight: "bold", fontSize: "14px" } }}
+            styles={{ text: { fontWeight: 'bold', fontSize: '14px' } }}
           >
-            {algoMessages[selectedAlgo?.data][selectedAlgo.key]["info"]}
+            {algoMessages[selectedAlgo?.data][selectedAlgo.key]['info']}
           </MessageBar>
         ) : (
           <MessageBar
@@ -738,9 +738,9 @@ export const Graph = (props) => {
             messageBarType={MessageBarType.error}
             isMultiline={false}
             dismissButtonAriaLabel="Close"
-            styles={{ text: { fontWeight: "bold", fontSize: "14px" } }}
+            styles={{ text: { fontWeight: 'bold', fontSize: '14px' } }}
           >
-            {algoMessages[selectedAlgo?.data][selectedAlgo.key]["failure"]}
+            {algoMessages[selectedAlgo?.data][selectedAlgo.key]['failure']}
           </MessageBar>
         ))}
       <svg ref={graph} className={styles.graph} onClick={handleSelect}>
@@ -756,13 +756,13 @@ export const Graph = (props) => {
             editEdgeMode={options.editEdge}
             readyForVisualization={nodeSelection.isStartNodeSelected}
             readyForMovement={options.moveNode}
-            readyForEdge={selectedEdge?.key !== "select"}
+            readyForEdge={selectedEdge?.key !== 'select'}
             pathFindingNode={pathFindingNode}
           />
         ))}
         {mockEdge && (
           <>
-            {selectedEdge?.key === "directed" && (
+            {selectedEdge?.key === 'directed' && (
               <marker
                 className={styles.mockArrow}
                 id="mockArrowHead"
@@ -788,14 +788,14 @@ export const Graph = (props) => {
       </svg>
       <Modal
         styles={{
-          main: { minHeight: "0px", minWidth: "0px", height: "31px" },
-          scrollableContent: { display: "flex" },
+          main: { minHeight: '0px', minWidth: '0px', height: '31px' },
+          scrollableContent: { display: 'flex' },
         }}
         isOpen={isModalOpen}
       >
         {edge && edge.weight !== null && (
           <TextField
-            styles={{ fieldGroup: { border: "none" } }}
+            styles={{ fieldGroup: { border: 'none' } }}
             type="number"
             min={0}
             max={500}

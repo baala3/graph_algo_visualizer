@@ -1,4 +1,4 @@
-import { Queue } from "../data-structures/Queue";
+import { Queue } from '../data-structures/Queue';
 
 // Performs breadth-first search traversal starting from given node
 export const bfs = (edges, startNodeId) => {
@@ -11,9 +11,9 @@ export const bfs = (edges, startNodeId) => {
     y2: NaN,
     nodeX2: NaN,
     nodeY2: NaN,
-    from: "Infinity",
+    from: 'Infinity',
     to: startNodeId.toString(),
-    type: "directed",
+    type: 'directed',
     weight: NaN,
     isUsedInTraversal: false,
   };

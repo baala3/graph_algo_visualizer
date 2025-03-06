@@ -1,4 +1,4 @@
-import { cloneDeep } from "lodash";
+import { cloneDeep } from 'lodash';
 
 // Finds minimum spanning tree using Prim's algorithm starting from given node
 export const minspantreeprims = (edges, nodes, startNodeId) => {
@@ -14,7 +14,7 @@ export const minspantreeprims = (edges, nodes, startNodeId) => {
       isGraphNotEligible ||
       (edges === null || edges === void 0
         ? void 0
-        : edges.some((edge) => edge.type === "directed"));
+        : edges.some((edge) => edge.type === 'directed'));
   });
   if (isGraphNotEligible) {
     return [];
@@ -51,9 +51,9 @@ const getVisitedEdges = (prev, visitedEdges, nodes, startNodeId) => {
     y2: NaN,
     nodeX2: NaN,
     nodeY2: NaN,
-    from: "Infinity",
+    from: 'Infinity',
     to: startNodeId.toString(),
-    type: "directed",
+    type: 'directed',
     weight: NaN,
     isUsedInTraversal: false,
   };

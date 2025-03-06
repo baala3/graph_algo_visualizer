@@ -54,7 +54,8 @@
   display: flex;
   flex-direction: column;
   width: 99%;
-  height: 88vh;
+  height: 100%;
+  margin-bottom: 6px;
   align-self: center;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);

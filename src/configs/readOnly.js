@@ -1,74 +1,74 @@
-import { DropdownMenuItemType } from "@fluentui/react";
+import { DropdownMenuItemType } from '@fluentui/react';
 export const edgeOptions = [
   {
-    key: "select",
-    text: "Select Edge",
+    key: 'select',
+    text: 'Select Edge',
   },
   {
-    key: "directed",
-    text: "Directed",
+    key: 'directed',
+    text: 'Directed',
   },
   {
-    key: "undirected",
-    text: "Undirected",
+    key: 'undirected',
+    text: 'Undirected',
   },
 ];
 export const algoOptions = [
   {
-    key: "select",
-    text: "Select Algorithm",
+    key: 'select',
+    text: 'Select Algorithm',
   },
-  { key: "divider_1", text: "-", itemType: DropdownMenuItemType.Divider },
+  { key: 'divider_1', text: '-', itemType: DropdownMenuItemType.Divider },
   {
-    key: "traversal",
-    text: "Traversal",
+    key: 'traversal',
+    text: 'Traversal',
     itemType: DropdownMenuItemType.Header,
   },
   {
-    key: "bfs",
-    data: "traversal",
-    text: "Breadth First Search",
+    key: 'bfs',
+    data: 'traversal',
+    text: 'Breadth First Search',
   },
   {
-    key: "dfs",
-    data: "traversal",
-    text: "Depth First Search",
+    key: 'dfs',
+    data: 'traversal',
+    text: 'Depth First Search',
   },
   {
-    key: "minspantreeprims",
-    data: "traversal",
-    text: "Minimum Spanning Tree",
+    key: 'minspantreeprims',
+    data: 'traversal',
+    text: 'Minimum Spanning Tree',
   },
-  { key: "divider_2", text: "-", itemType: DropdownMenuItemType.Divider },
+  { key: 'divider_2', text: '-', itemType: DropdownMenuItemType.Divider },
   {
-    key: "pathfinding",
-    text: "Pathfinding",
+    key: 'pathfinding',
+    text: 'Pathfinding',
     itemType: DropdownMenuItemType.Header,
   },
   {
-    key: "dijkstra",
-    data: "pathfinding",
-    text: "Dijkstra",
+    key: 'dijkstra',
+    data: 'pathfinding',
+    text: 'Dijkstra',
   },
 ];
 
 export const algoMessages = {
   traversal: {
     bfs: {
-      info: "Click on any node to begin the traversal.",
+      info: 'Click on any node to begin the traversal.',
     },
     dfs: {
-      info: "Click on any node to begin the traversal.",
+      info: 'Click on any node to begin the traversal.',
     },
     minspantreeprims: {
-      info: "Click on any node to see the minimum spanning tree. Works only on connected undirected graphs.",
-      failure: "Graph violates the requirements of the algorithm.",
+      info: 'Click on any node to see the minimum spanning tree. Works only on connected undirected graphs.',
+      failure: 'Graph violates the requirements of the algorithm.',
     },
   },
   pathfinding: {
     dijkstra: {
-      info: "Select a starting node and ending node to visualize the pathfinding algorithm.",
-      failure: "Path is not possible for the given vertices.",
+      info: 'Select a starting node and ending node to visualize the pathfinding algorithm.',
+      failure: 'Path is not possible for the given vertices.',
     },
   },
 };
