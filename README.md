@@ -2,8 +2,6 @@
 
 A web-based interactive tool for visualizing common graph algorithms. Built with React and SVG graphics, which allows to create, manipulate, and analyze graphs while watching algorithms execute in real-time.
 
-<img src="./public/graph_algo_visualizer.png" alt="Medium">
-
 ## Features
 
 - **Graph Creation and Editing**

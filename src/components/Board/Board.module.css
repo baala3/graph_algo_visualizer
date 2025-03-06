@@ -32,9 +32,7 @@
   display: flex;
   align-items: center;
 }
-.algorithm {
-  /* display: flex; */
-}
+
 .visualizeControls {
   display: flex;
   width: 30%;
@@ -142,10 +140,21 @@
     flex-basis: 50%;
     gap: 5px;
   }
+  .visualizeControls {
+    flex-basis: 0%;
+    margin-left: 8px;
+  }
   .optionButtons {
     height: 100%;
   }
-  .miscellaneous {
+  .speedSlider {
     display: none;
+  }
+  .controlPanel {
+    gap: 5px;
+    overflow: hidden;
+  }
+  .miscellaneous {
+    z-index: 100;
   }
 }
