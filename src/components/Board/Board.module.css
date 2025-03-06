@@ -66,6 +66,12 @@
 .icon {
   margin-right: 5px;
 }
+.appName {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  margin-left: 10px;
+}
 .optionButtons {
   background-image: linear-gradient(45deg, #4039ad, #0e8ecc 159%);
   border: none;
@@ -109,6 +115,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .pullDownMenu {
@@ -134,7 +141,7 @@
     height: 80%;
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
   .nodeOptions,
   .edgeOptions {
     flex-basis: 50%;
@@ -157,5 +164,8 @@
   .miscellaneous {
     display: none;
     z-index: 100;
+  }
+  .appName {
+    display: none;
   }
 }

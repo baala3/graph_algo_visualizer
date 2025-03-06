@@ -39,3 +39,10 @@
   width: 100%;
   background-image: linear-gradient(45deg, #ffffff, #ffcc3c 60%);
 }
+.welcomeMessage {
+  position: absolute;
+  text-align: center;
+  z-index: 2;
+  width: 100%;
+  background-image: linear-gradient(45deg, #ffffff, #ab82e1 50%);
+}

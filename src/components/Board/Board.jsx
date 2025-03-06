@@ -103,8 +103,12 @@ const Board = () => {
     <>
       <div className={styles.board}>
         <div className={styles.controlPanel}>
-          <div className={styles.appIconContainer}>
+          <div
+            className={styles.appIconContainer}
+            onClick={() => activateOption('reset')}
+          >
             <img className={styles.appIcon} src={appIcon} alt="App Icon"></img>
+            <div className={styles.appName}>Graph-Visualizer</div>
           </div>
           <div className={styles.nodeOptions}>
             <button

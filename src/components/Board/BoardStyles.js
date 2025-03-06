@@ -29,7 +29,7 @@ export const optionButtonStyles = {
       color: 'white !important',
       borderRadius: '5px',
       border: '2px solid white !important',
-      width: '180px',
+      minWidth: '170px',
     },
     dropdownItemHeader: {
       backgroundImage: 'linear-gradient(45deg, #ffffff, #5463ad 100%)',

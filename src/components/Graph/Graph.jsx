@@ -58,6 +58,7 @@ export const Graph = (props) => {
   const nodesTillNow = useRef(0);
   const graph = useRef();
   const isVisualizationDone = useRef(false);
+  const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
   const resetNodesAndEdgesState = useCallback(() => {
     let updateNodes = nodes.map((node) => {
       return Object.assign(Object.assign({}, node), {
@@ -105,6 +106,13 @@ export const Graph = (props) => {
       resetNodesAndEdgesState();
     }
   }, [options, resetNodesAndEdgesState]);
+  useEffect(() => {
+    if (nodes.length > 0) {
+      setShowWelcomeMessage(false);
+    } else {
+      setShowWelcomeMessage(true);
+    }
+  }, [nodes]);
   //add a new node to the graph
   const addNode = (event) => {
     const target = event.target;
@@ -701,6 +709,17 @@ export const Graph = (props) => {
   };
   return (
     <>
+      {showWelcomeMessage && (
+        <MessageBar
+          className={styles.welcomeMessage}
+          isMultiline={false}
+          dismissButtonAriaLabel="Close"
+          styles={{ text: { fontWeight: 'bold', fontSize: '14px' } }}
+        >
+          Build your own graph with nodes and edges, then explore algorithms in
+          action!
+        </MessageBar>
+      )}
       {selectedAlgo?.data === 'traversal' &&
         (isTraversalPossible ? (
           <MessageBar
