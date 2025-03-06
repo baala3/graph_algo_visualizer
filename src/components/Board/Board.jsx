@@ -106,7 +106,9 @@ const Board = () => {
           className={styles.controlPanel}
           // style={isPullDownMenuOpen ? { top: "-7%" } : { top: "-125%" }}
         >
-          <img className={styles.appIcon} src={appIcon} alt="App Icon"></img>
+          <div className={styles.appIconContainer}>
+            <img className={styles.appIcon} src={appIcon} alt="App Icon"></img>
+          </div>
           <div className={styles.nodeOptions}>
             <button
               className={`${styles.optionButtons} 
@@ -209,13 +211,11 @@ const Board = () => {
           </div>
         </div>
 
-        <div className={styles.visualizerProgress}>
-          {isVisualizing ? (
+        {isVisualizing && (
+          <div className={styles.visualizerProgress}>
             <ProgressIndicator styles={{ itemProgress: { padding: "0" } }} />
-          ) : (
-            <hr />
-          )}
-        </div>
+          </div>
+        )}
         <div className={styles.graphContainer}>
           <Graph
             options={options}

@@ -9,9 +9,13 @@
   border-radius: 20px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  background: #121419;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
   padding-top: 10px;
 }
+
 .nodeOptions {
   display: flex;
   width: 25%;
@@ -44,6 +48,7 @@
   height: 100vh;
   background-image: linear-gradient(180deg, #51268ad1, #0072ffbf 119%);
 }
+
 .graphContainer {
   position: relative;
   display: flex;
@@ -51,7 +56,10 @@
   width: 99%;
   height: 88vh;
   align-self: center;
-  background: #121419;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
   border-radius: 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -68,6 +76,7 @@
   outline-color: white;
   cursor: pointer;
 }
+
 .dropdownWrapper {
   background-image: linear-gradient(45deg, #4039ad, #0e8ecc 159%);
   border-radius: 5px;
@@ -92,99 +101,50 @@
   width: 99%;
   align-self: center;
 }
-.visualizerProgress hr {
-  margin: 0;
-  border-style: ridge;
-}
+
 .appIcon {
-  height: 45px;
-  width: 45px;
-  transform: scale(1.25);
+  height: 40px;
+  width: 40px;
+}
+.appIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pullDownMenu {
   display: none;
 }
-@media only screen and (max-width: 1000px) {
+
+@media only screen and (max-width: 850px) {
   .controlPanel {
-    display: flex;
-    position: absolute;
-    z-index: 1;
-    width: 99%;
-    align-items: center;
-    flex-direction: column;
-    height: 95vh;
-    transition: ease-in 0.3s;
-    padding-bottom: 10px;
-    border-radius: 20px;
-    background: #121419;
+    flex-wrap: wrap;
+    gap: 5px;
   }
-  .nodeOptions {
-    display: flex;
-    width: 80%;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-  .optionButtons {
-    background-image: linear-gradient(45deg, #4039ad, #0e8ecc 159%);
-    border: none;
-    height: 32px;
-    color: white;
-    width: 100%;
-    border-radius: 0;
-    outline-color: white;
-    cursor: pointer;
-  }
+  .nodeOptions,
   .edgeOptions {
-    display: flex;
-    width: 80%;
-    flex-direction: column;
-    overflow: hidden;
-    margin-top: 5px;
-    border-radius: 10px;
-  }
-  .visualizeControls {
-    display: flex;
-    width: 80%;
-    margin-top: 15px;
-    flex-direction: column;
-  }
-  .speedSlider {
-    width: 100%;
-  }
-  .miscellaneous {
-    display: flex;
-    align-items: center;
-    width: 80%;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-  .dropdownWrapper {
-    width: 100%;
-    margin-bottom: 5px;
-  }
-  .graphContainer {
-    height: 100%;
+    flex-basis: 30%;
+    gap: 5px;
   }
 
-  .pullDownMenu {
-    position: absolute;
-    display: flex;
-    right: 10px;
-    top: 48%;
-    height: 40px;
-    justify-content: flex-end;
-    z-index: 2;
+  .algorithm,
+  .visualizeControls {
+    flex-basis: 50%;
   }
-  .pullDownMenuButton {
-    width: 15px;
-    height: 15px;
-    border-right: 3px solid #4a46e4;
-    border-bottom: 3px solid #4a46e4;
-    transform: rotate(45deg);
+  .optionButtons {
+    height: 80%;
   }
-  .appIcon {
-    margin-top: 15px;
+}
+@media only screen and (max-width: 600px) {
+  .nodeOptions,
+  .edgeOptions {
+    flex-basis: 50%;
+    gap: 5px;
+  }
+  .optionButtons {
+    height: 100%;
+  }
+  .miscellaneous {
+    display: none;
   }
 }
