@@ -807,34 +807,48 @@ export const Graph = (props) => {
       </svg>
       <Modal
         styles={{
-          main: { minHeight: '0px', minWidth: '0px', height: '31px' },
-          scrollableContent: { display: 'flex' },
+          main: {
+            minHeight: '0px',
+            minWidth: '0px',
+            height: 'auto',
+            backgroundColor: 'rgba(65, 68, 160, 0.9)',
+            overflow: 'hidden',
+          },
+          scrollableContent: {
+            display: 'flex',
+            msOverflowStyle: 'none', // Hide scrollbar IE and Edge
+            scrollbarWidth: 'none', // Hide scrollbar Firefox
+            '&::-webkit-scrollbar': {
+              display: 'none', // Hide scrollbar Chrome, Safari, Opera
+            },
+          },
         }}
         isOpen={isModalOpen}
       >
         {edge && edge.weight !== null && (
-          <TextField
-            styles={{ fieldGroup: { border: 'none' } }}
-            type="number"
-            min={0}
-            max={500}
-            value={edge.weight.toString()}
-            onKeyDown={(e) => {
-              if (e.keyCode === 13) {
-                editEdgeWeight();
-              }
-            }}
-            onChange={(e) => {
-              parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 500
-                ? setEdge({ ...edge, weight: parseInt(e.target.value) })
-                : e.preventDefault();
-            }}
-          />
+          <>
+            <TextField
+              styles={{ fieldGroup: { border: 'none' } }}
+              type="number"
+              min={0}
+              max={500}
+              value={edge.weight.toString()}
+              onKeyDown={(e) => {
+                if (e.keyCode === 13) {
+                  editEdgeWeight();
+                }
+              }}
+              onChange={(e) => {
+                parseInt(e.target.value) >= 0 && parseInt(e.target.value) <= 500
+                  ? setEdge({ ...edge, weight: parseInt(e.target.value) })
+                  : e.preventDefault();
+              }}
+            />
+            <button className={styles.modalButton} onClick={editEdgeWeight}>
+              Set Weight
+            </button>
+          </>
         )}
-
-        <button className={styles.modalButton} onClick={editEdgeWeight}>
-          Set Weight
-        </button>
       </Modal>
     </>
   );

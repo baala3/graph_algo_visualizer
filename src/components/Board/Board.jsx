@@ -161,7 +161,7 @@ const Board = () => {
               disabled={isVisualizing}
             >
               <i className={`${styles.icon} fas fa-pen`}></i>
-              Edit Edge
+              Add Weight
             </button>
             <button
               className={`${styles.optionButtons} ${
