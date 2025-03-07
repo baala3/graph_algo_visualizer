@@ -73,7 +73,7 @@
   margin-left: 10px;
 }
 .optionButtons {
-  background-image: linear-gradient(45deg, #4039ad, #0e8ecc 159%);
+  background-image: linear-gradient(45deg, #4573df, #773dc7 159%);
   border: none;
   height: 68%;
   color: white;
@@ -83,7 +83,7 @@
 }
 
 .dropdownWrapper {
-  background-image: linear-gradient(45deg, #4039ad, #0e8ecc 159%);
+  background-image: linear-gradient(45deg, #4573df, #773dc7 159%);
   border-radius: 5px;
 }
 .selectedButtonOption {
@@ -95,7 +95,7 @@
   outline: none;
 }
 .selectedDropdownOption {
-  background-image: linear-gradient(45deg, #4039ad, #0e8ecc 159%);
+  background-image: linear-gradient(45deg, #4573df, #773dc7 159%);
   border-radius: 5px;
 }
 .speedSlider {
@@ -144,7 +144,7 @@
 @media only screen and (max-width: 650px) {
   .nodeOptions,
   .edgeOptions {
-    flex-basis: 50%;
+    flex-basis: 60%;
     gap: 5px;
   }
   .visualizeControls {
