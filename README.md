@@ -2,6 +2,8 @@
 
 A web-based interactive tool for visualizing common graph algorithms. Built with React and SVG graphics, which allows to create, manipulate, and analyze graphs while watching algorithms execute in real-time.
 
+**🔍 see in action** [Graph Algorithm's Visualizer](https://graph-algo-visualizer-mocha.vercel.app/)
+
 ## Features
 
 - **Graph Creation and Editing**
